@@ -1,0 +1,82 @@
+.vc-swipe-cell {
+  &.active .cell {
+    &-body {
+      will-change: transform;
+    }
+  }
+
+  &.inactive .cell {
+    &-body {
+      will-change: none;
+    }
+  }
+}
+
+.cell {
+  &-base {
+    position: relative;
+    overflow: hidden;
+  }
+
+  &-left-can,
+  &-right-can {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    overflow: visible;
+    z-index: 0;
+  }
+
+  &-left-can {
+    left: 0;
+    opacity: 0;
+  }
+
+  &-right-can {
+    right: 0;
+    opacity: 1;
+  }
+
+  &-can-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  &-body-can,
+  &-body {
+    position: relative;
+    z-index: 3;
+  }
+
+  // z-index
+  &-base[class*='left'] & {
+    &-left-can {
+      z-index: 2;
+      opacity: 1;
+    }
+
+    &-right-can {
+      z-index: 0;
+      opacity: 0;
+    }
+
+    &-can-bg {
+      z-index: 1;
+    }
+  }
+
+  &-base.border & {
+    &-left-can,
+    &-right-can {
+      & /deep/ {
+        & > * {
+          will-change: transfrom;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+# Browsers that we support
+# https://browserl.ist/
+
+last 5 years
+> 1%
+# maintained node versions # browserslist的依赖库数据过期了, 到时候再启用
+not dead

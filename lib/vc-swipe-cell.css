@@ -1,0 +1,54 @@
+.vc-swipe-cell.active .cell-body[data-v-ef43eca8] {
+  will-change: transform;
+}
+.vc-swipe-cell.inactive .cell-body[data-v-ef43eca8] {
+  will-change: none;
+}
+.cell-base[data-v-ef43eca8] {
+  position: relative;
+  overflow: hidden;
+}
+.cell-left-can[data-v-ef43eca8], .cell-right-can[data-v-ef43eca8] {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  overflow: visible;
+  z-index: 0;
+}
+.cell-left-can[data-v-ef43eca8] {
+  left: 0;
+  opacity: 0;
+}
+.cell-right-can[data-v-ef43eca8] {
+  right: 0;
+  opacity: 1;
+}
+.cell-can-bg[data-v-ef43eca8] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.cell-body-can[data-v-ef43eca8], .cell-body[data-v-ef43eca8] {
+  position: relative;
+  z-index: 3;
+}
+.cell-base[class*='left'] .cell-left-can[data-v-ef43eca8] {
+  z-index: 2;
+  opacity: 1;
+}
+.cell-base[class*='left'] .cell-right-can[data-v-ef43eca8] {
+  z-index: 0;
+  opacity: 0;
+}
+.cell-base[class*='left'] .cell-can-bg[data-v-ef43eca8] {
+  z-index: 1;
+}
+.cell-base.border .cell-left-can[data-v-ef43eca8] > *, .cell-base.border .cell-right-can[data-v-ef43eca8] > * {
+  will-change: transfrom;
+}
+
+
+/*# sourceMappingURL=vc-swipe-cell.css.map*/
