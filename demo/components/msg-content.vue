@@ -10,6 +10,7 @@
       font-weight: 700;
       font-size: 16px;
       color: #2f2f2f;
+      flex: auto;
     }
 
     &-time {

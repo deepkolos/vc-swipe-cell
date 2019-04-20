@@ -376,13 +376,13 @@ export default {
         return 0;
       }
     },
-    swipeOffsetDeta(withOverflow) {
+    swipeOffsetDelta(withOverflow) {
       return (
         this.swipeOffsetMax(withOverflow) - this.swipeOffsetMin(withOverflow)
       );
     },
     swipePercentMax() {
-      return this.swipeOffsetDeta(true) / this.swipeOffsetDeta();
+      return this.swipeOffsetDelta(true) / this.swipeOffsetDelta();
     },
 
     onSwipeStart(info) {
@@ -482,14 +482,14 @@ export default {
     isReachExpansion() {
       return (
         this.progressPrecent() >
-        1 + ((3 / 4) * MAX_OVERFLOW_OFFSET) / this.swipeOffsetDeta()
+        1 + ((3 / 4) * MAX_OVERFLOW_OFFSET) / this.swipeOffsetDelta()
       );
     },
 
-    ajustDuration() {
+    adjustDuration() {
       const predictX = this.tracker.predictX(-0.006);
       const remainDistance =
-        (1 - this.progressPrecent()) * this.swipeOffsetDeta();
+        (1 - this.progressPrecent()) * this.swipeOffsetDelta();
       let duration = this.duration;
       if (predictX.s > remainDistance) {
         duration = (remainDistance / Math.abs(predictX.s)) * predictX.t * 1.5;
@@ -517,7 +517,7 @@ export default {
             : false;
 
         const moveTo = () => {
-          this.$bodyStyle.transitionDuration(this.ajustDuration() + 'ms');
+          this.$bodyStyle.transitionDuration(this.adjustDuration() + 'ms');
           this.currAnimation = this.$bodyStyle
             .transform(tranX(dst))
             .then(() => {
@@ -588,8 +588,8 @@ export default {
     },
     updateBorderTranX(info = {}) {
       const currState = info.currState.id;
-      const nextState = info.nextState.id;
-      if (!nextState) return;
+      const nextState = (info.nextState || {}).id;
+      if (nextState === undefined) return;
       let percent = info.percent;
       let transitionType = 'follow';
       const animate = duration => {
@@ -694,6 +694,7 @@ export default {
     },
     emitProgressChange() {
       const info = this.getEmitInfo();
+      // console.log('TCL: emitProgressChange -> percent', info.percent);
 
       switch (this.transitionStyle) {
         case 'reveal':
