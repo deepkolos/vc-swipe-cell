@@ -491,8 +491,17 @@ export default {
       const remainDistance =
         (1 - this.progressPrecent()) * this.swipeOffsetDelta();
       let duration = this.duration;
-      if (predictX.s > remainDistance) {
-        duration = (remainDistance / Math.abs(predictX.s)) * predictX.t * 1.5;
+      const { abs, max } = Math;
+
+      if (abs(predictX.s) > abs(remainDistance)) {
+        // props 的 duration 是作为参考值
+        // TODO: 这里的duration调节需要优化, 触发 max 和 min 的情况太多
+        duration =
+          1.5 *
+          predictX.t *
+          (remainDistance / abs(predictX.s)) *
+          max(this.duration / DEFAULT_DURATION, 1);
+
         return restrictRange(duration, MIN_DURATION, this.duration);
       }
       return duration;
@@ -517,6 +526,10 @@ export default {
             : false;
 
         const moveTo = () => {
+          console.log(
+            'TCL: moveTo -> this.adjustDuration()',
+            this.adjustDuration()
+          );
           this.$bodyStyle.transitionDuration(this.adjustDuration() + 'ms');
           this.currAnimation = this.$bodyStyle
             .transform(tranX(dst))
