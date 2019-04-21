@@ -397,6 +397,7 @@ export default {
       switch (this.stepper.getJumpStatus()) {
         case 0:
           this.stepper.testNextState(info);
+          // 这里swipe start的时候会拿不到的，感觉两个rFA有可能有问题
           rFA(() => {
             rFA(() => {
               this.startVelocityX = this.tracker.getXVelocity();
@@ -526,10 +527,6 @@ export default {
             : false;
 
         const moveTo = () => {
-          console.log(
-            'TCL: moveTo -> this.adjustDuration()',
-            this.adjustDuration()
-          );
           this.$bodyStyle.transitionDuration(this.adjustDuration() + 'ms');
           this.currAnimation = this.$bodyStyle
             .transform(tranX(dst))
@@ -707,7 +704,6 @@ export default {
     },
     emitProgressChange() {
       const info = this.getEmitInfo();
-      // console.log('TCL: emitProgressChange -> percent', info.percent);
 
       switch (this.transitionStyle) {
         case 'reveal':
