@@ -1,5 +1,7 @@
 # vc-swipe-cell(beta)
 
+![https://travis-ci.com/deepkolos/vc-swipe-cell](https://travis-ci.com/deepkolos/vc-swipe-cell.svg?branch=master)
+
 一个模仿[SwipeCellKit](https://github.com/SwipeCellKit/SwipeCellKit)的 vue 组件
 
 ### [Live Demo](https://deepkolos.github.io/vc-swipe-cell/)
