@@ -4,7 +4,6 @@
 ![](https://img.shields.io/npm/dt/vc-swipe-cell.svg)
 ![](https://img.shields.io/npm/v/vc-swipe-cell.svg)
 
-
 一个模仿[SwipeCellKit](https://github.com/SwipeCellKit/SwipeCellKit)的 vue 组件
 
 ### [Live Demo](https://deepkolos.github.io/vc-swipe-cell/)
@@ -54,11 +53,11 @@
 
 # VM Public Methods
 
-| name              | params   | 描述                     |
-| ----------------- | -------- | ------------------------ |
-| expand            | 'left'   | 展开左/右按钮            |
-| unexpand          |          | 返回默认状态             |
-| onceUnexpand(TDB) | callback | 返回默认状态，并执行回调 |
+| name              | params      | 描述                     |
+| ----------------- | ----------- | ------------------------ |
+| expand            | left, right | 展开左/右按钮            |
+| unexpand          |             | 返回默认状态             |
+| onceUnexpand(TDB) | callback    | 返回默认状态，并执行回调 |
 
 # Demo Code
 
