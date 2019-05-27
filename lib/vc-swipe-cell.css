@@ -12,6 +12,7 @@
   position: absolute;
   top: 0;
   bottom: 0;
+  display: -webkit-flex;
   display: flex;
   overflow: visible;
   z-index: 0;
@@ -50,5 +51,3 @@
   will-change: transfrom;
 }
 
-
-/*# sourceMappingURL=vc-swipe-cell.css.map*/

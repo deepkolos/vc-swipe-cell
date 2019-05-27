@@ -3,7 +3,6 @@ import mixResize from 'mix/resize';
 import swipeDirective from 'vue-swipe-directive';
 import VelocityTracker from 'lib/velocity-tracker';
 
-import { restrictRange } from 'util/num';
 import { StateMachine, State } from 'lib/state-machine';
 import { transform, tranX, tranX3D, rFA } from 'util/dom';
 
@@ -26,6 +25,10 @@ const collectChildWidth = node =>
     node.children,
     $btn => $btn.getBoundingClientRect().width
   );
+
+const restrictRange = (curr, min, max) => {
+  return curr < min ? min : curr > max ? max : curr;
+};
 
 const fillPercent = percent => {
   if (percent > -0.009 && percent < 0.009) return 0;

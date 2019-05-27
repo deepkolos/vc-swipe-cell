@@ -14,6 +14,8 @@ module.exports = function() {
 
   base.devtool = 'source-map';
   base.mode = 'development';
+  // base.devtool = false;
+  // base.mode = 'production';
 
   base.output = {
     path: path.resolve(__dirname, '../lib'),

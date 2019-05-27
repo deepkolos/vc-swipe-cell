@@ -1,5 +1,4 @@
 import { on, off } from 'util/dom';
-// import { debounce } from 'util/debounce';
 
 export default {
   mounted() {
